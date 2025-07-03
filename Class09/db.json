@@ -1,0 +1,47 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "views": 200
+    }
+  ],
+  "comments": [
+    {
+      "email": "gw85p7c59x@rteet.com",
+      "pass": "213424",
+      "id": "2"
+    },
+    {
+      "email": "sinthiasurmi@gmail.com",
+      "pass": "21321",
+      "id": "4e17"
+    },
+    {
+      "id": "7106",
+      "email": "mohitosmollick1@gmail.com",
+      "pass": "34223"
+    },
+    {
+      "id": "4421",
+      "email": "dipmollick013@gmail.com",
+      "pass": "34223344"
+    },
+    {
+      "id": "f198",
+      "email": "gwwerwer85p7c59x@rteet.com",
+      "pass": "213424343"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "like": {
+    "name": "sdf"
+  }
+}
