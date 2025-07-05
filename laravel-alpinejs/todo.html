@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpine.js Interactive Demo (Markup Only)</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body>
+    <!-- component -->
+<div class="h-100 mt-8 w-full flex items-center justify-center bg-teal-lightest font-sans">
+	<div class="bg-white rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg" x-data="todoList">
+        <div class="mb-4">
+            <h1 class="text-grey-darkest">Todo List</h1>
+            <div class="flex mt-4">
+                <input @keyup.enter="addTodo()" x-model="newTodo" class="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker" placeholder="Add Todo" />
+                <button  @click="addTodo()"  class="flex-no-shrink p-2 border-2 rounded text-teal border-teal  hover:bg-teal">Add</button>
+            </div>
+        </div>
+        <div>
+            <h3>Check: <span x-text="getCompletedCount()"></span> in <span x-text="todos.length"></span></h3>
+            <template x-for="todo in todos" :key="todo.id">
+                <div class="flex mb-4 items-center">
+                    <input  x-model="todo.completed" class="w-5 h-5 text-blue-600 mr-4" type="checkbox" />
+
+                    <p class="w-full text-grey-darkest " :class="todo.completed?'line-through':''" x-text="todo.text" ></p>
+
+                    <button @click="remove(todo.id)"  class="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red  hover:bg-red">Remove</button>
+                </div>
+            </template>
+        
+        </div>
+    </div>
+</div>
+</body>
+
+<script>
+    const todoList = {
+        newTodo : "",
+        todos:[
+            {id:1, text:'Learn php', completed: true},
+            {id:2, text:'Learn JS', completed: false},
+            {id:3, text:'Learn Python', completed: false},
+            {id:4, text:'Learn Rubi', completed: false},
+        ],
+
+        addTodo(){
+            const todo = { completed: false};
+            todo.id = this.todos.length + 1
+            todo.text = this.newTodo
+            this.todos.push(todo)
+            this.newTodo=''
+        },
+
+        getCompletedCount(){
+            return this.todos.filter(todo=>todo.completed).length
+        },
+        remove(id){
+        return this.todos = this.todos.filter(todo=>todo.id!=id)
+            
+        }
+        
+    
+    }
+
+</script>
+
+</html>
